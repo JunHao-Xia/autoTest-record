@@ -1,25 +1,29 @@
 <template>
     <div class="homeContainer">
-        <div class="selectBoxOne">
+        <div class="selectBoxOne" @click="selectRecord(1)">
             APP录制
         </div>
-        <div class="selectBoxTwo">
-            网页录制
+        <div class="selectBoxTwo" @click="selectRecord(2)">
+            网页录制 
         </div>
     </div>
 </template>
 <script lang="ts" setup>
+import { useBusiDataStore } from '../store/index';
+import { useRouter } from 'vue-router';
+const router = useRouter();
+const selectRecord = (value:number)=>{
+    const busiData = useBusiDataStore();
+    //选择录制方式 1:APP录制，2：网页录制
+    busiData.selectRecordStyle(value);
+    router.push('/inputPath');
+}
 </script>
 
 <style scoped lang="scss">
 @use "../assets/styles/variables.scss" as vars;
 .homeContainer {
-    width: 100%;
-    height: 100%;
-    background-image: url('@/assets/image/home.png');
-    background-size: cover; /* 确保背景图像覆盖整个元素 */
-    background-position: center; /* 将背景图像在元素中居中 */
-    background-repeat: no-repeat; /* 防止背景图像重复 */
+    height: 100vh;
     display: flex;
     align-items: center;
     box-sizing: border-box;
@@ -29,8 +33,9 @@
 .selectBoxOne,.selectBoxTwo{
     width:15rem;
     height: 15rem;
-    background-color: white;
+    background-color: rgba(255, 255, 255, .6);
     border-radius: vars.$base-border-radius;
     text-align: center;
+    line-height: 15rem;
 }
 </style>

@@ -1,11 +1,35 @@
 import { defineConfig } from 'vite';
 import path from 'path';
 import vue from '@vitejs/plugin-vue';
-console.log(111111111111111)
-console.log(path.resolve(__dirname, './src/renderer/assets/styles/variables.scss'));
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import Icons from 'unplugin-icons/vite'
+import IconsResolver  from 'unplugin-icons/resolver'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 // https://vitejs.dev/config
 export default defineConfig({
-    plugins:[vue()],
+    plugins:[
+        vue(),
+        AutoImport({
+            resolvers: [
+              ElementPlusResolver(),
+              IconsResolver({
+                prefix: 'Icon', // 图标组件前缀
+              }),
+            ],
+          }),
+          Components({
+            resolvers: [
+              ElementPlusResolver(),
+              IconsResolver({
+                enabledCollections: ['ep'], // 启用 Element Plus 图标库
+              }),
+            ],
+          }),
+          Icons({
+            autoInstall: true, // 自动安装图标库
+          }),
+    ],
     resolve:{
         alias:{
             '@':path.resolve(__dirname,'./src/renderer')
@@ -14,7 +38,8 @@ export default defineConfig({
     css:{
         preprocessorOptions:{
             scss:{
-                additionalData:``
+                additionalData:``,
+                api: 'modern-compiler'
             }
         }
     }
