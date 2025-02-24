@@ -1,5 +1,6 @@
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, ipcMain } from 'electron';
 import path from 'path';
+import { initIPC } from '.';
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
@@ -12,6 +13,8 @@ const createWindow = () => {
     width: 800,
     height: 600,
     webPreferences: {
+      webSecurity: false, // 禁用同源策略，允许跨域请求（暂时这样）
+
       preload: path.join(__dirname, 'preload.js'),
     },
   });
@@ -29,7 +32,15 @@ const createWindow = () => {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', createWindow);
+app.on('ready', ()=>{
+//监听渲染进程发送的消息，并执行相应操作。
+  initIPC();
+  //创建客户端窗口实例，并加载index.html页面。
+  createWindow();
+  
+  
+
+});
 
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits

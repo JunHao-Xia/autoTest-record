@@ -1,0 +1,79 @@
+{
+  "id": "4669832",
+  "name": "autotest",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "6876267",
+      "name": "断开链接",
+      "font_class": "duankailianjie",
+      "unicode": "e71a",
+      "unicode_decimal": 59162
+    },
+    {
+      "icon_id": "12201320",
+      "name": "停止",
+      "font_class": "tingzhi",
+      "unicode": "e800",
+      "unicode_decimal": 59392
+    },
+    {
+      "icon_id": "996523",
+      "name": "暂停",
+      "font_class": "ai07",
+      "unicode": "e67b",
+      "unicode_decimal": 59003
+    },
+    {
+      "icon_id": "4908329",
+      "name": "播放",
+      "font_class": "bofang",
+      "unicode": "e663",
+      "unicode_decimal": 58979
+    },
+    {
+      "icon_id": "6539426",
+      "name": "链接",
+      "font_class": "lianjie1",
+      "unicode": "e683",
+      "unicode_decimal": 59011
+    },
+    {
+      "icon_id": "6865347",
+      "name": "设置",
+      "font_class": "shezhi1",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "748088",
+      "name": "设置",
+      "font_class": "shezhi",
+      "unicode": "e668",
+      "unicode_decimal": 58984
+    },
+    {
+      "icon_id": "11077383",
+      "name": "用户",
+      "font_class": "yonghu",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "25853324",
+      "name": "链接",
+      "font_class": "lianjie",
+      "unicode": "e6e7",
+      "unicode_decimal": 59111
+    },
+    {
+      "icon_id": "25853327",
+      "name": "链接断开",
+      "font_class": "lianjieduankai",
+      "unicode": "e6e8",
+      "unicode_decimal": 59112
+    }
+  ]
+}
